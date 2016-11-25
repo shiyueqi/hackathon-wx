@@ -1,12 +1,56 @@
-<!--about.wxml-->
-<view class="about">
-<view class="about-wei">
- <view class="about-img"><image src='{{img}}' ></image></view>
-<view class="about-title">{{title}}</view>
-</view>
-<view>{{intro}}</view>
-<view>{{contact}}</view>
-<view>{{address}}</view>
-<view>{{phone}}</view>
-<view>{{code}}</view>
+
+<view class="container more">
+  <view class="user flex-wrp">
+    <view class="avatar flex-item">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="user-info flex-item">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="edit">个人签名</text>
+    </view>
+  </view>
+
+  <view class="my">
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../image/userinfo.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>个人信息</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../image/collection.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的收藏</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../image/praise.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我赞过的</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../image/article.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的文章</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../image/act.png"></image>
+      </view>
+      <view class="myitem-name flex-item">
+        <text>我的活动</text>
+      </view>
+    </view>
+
+  </view>
 </view>

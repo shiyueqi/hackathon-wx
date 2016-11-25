@@ -6,7 +6,6 @@
     "pages/lists/lists",
     "pages/detail/detail",
     "pages/aboutme/aboutme",
-    "pages/index/index",
     "pages/bloglist/bloglist",
     "pages/logs/logs"
     
@@ -27,7 +26,7 @@
       "selectedIconPath": "image/home_active.png"
     },
     {
-       "pagePath": "pages/bloglist/bloglist",
+       "pagePath": "pages/find/find",
       "text": "发现",
        "iconPath": "image/discovery.png",
       "selectedIconPath": "image/discovery_focus.png"
