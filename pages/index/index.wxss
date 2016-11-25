@@ -130,3 +130,10 @@
   font-size: 13px;
   padding: 0 1.34em;
 }
+.card-image{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+    height: 168px;
+}
+
