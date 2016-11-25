@@ -6,7 +6,6 @@ out/
 
 *.setting
 
-logs/*
 
 node_modules/
 
@@ -18,8 +17,6 @@ tmp/**/*
 *.tmp
 *.bak
 *.swp
-*.log
-*log*
 
 *~.nib
 local.properties
