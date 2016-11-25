@@ -7,8 +7,9 @@
     "pages/detail/detail",
     "pages/aboutme/aboutme",
     "pages/bloglist/bloglist",
-    "pages/logs/logs",
-    "pages/questionDetail/questionDetail"
+    "pages/questionDetail/questionDetail",
+    "pages/blogdetail/blogdetail",
+    "pages/logs/logs"
     
   ],
   "window":{
