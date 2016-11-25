@@ -6,7 +6,11 @@ Page({
   data: {
     motto: '',
     userInfo: {},
-    contentId: ''
+    contentId: '',
+    pageNum: 1,
+    pageSize: 5,
+    content:[],
+    comment:[]
   },
   //事件处理函数
   bindItemTap: function () {
@@ -16,16 +20,51 @@ Page({
   },
   onLoad: function (options) {
     console.log('onLoad')
-    console.log(options.contentId)
     var that = this
+
+    that.setData({
+      contentId: options.contentId
+    });
+
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo: userInfo,
-        contentId: options.contentId
+        userInfo: userInfo
       })
     })
+
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/content/'+that.data.contentId,
+      data: {
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res.data);
+          that.setData({
+          content: res.data
+      });
+      }
+    })
+
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/comments/content/'+that.data.contentId,
+      data: {
+        page: this.data.pageNum ,
+        pageSize: this.data.pageSize
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res.data.comments);
+          that.setData({
+          comment: res.data.comments
+      });
+      }
+    })    
   },
    writeComment: function () {
     console.log("hello")
