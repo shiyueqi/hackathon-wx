@@ -57,5 +57,18 @@
   </view>
   <view class="ctnt2 placehold" hidden="{{currentNavtab==2 ? '' : true}}">
     <text>文章</text>
+    <view class="container">
+    <navigator class="card" url="../blogdetail/blogdetail?id={{item.id}}&title={{item.name}}"  wx:for="{{list}}">
+        <image src="{{item.thumbnail}}" class="card-image"></image>
+        <view class="card-content">
+            <view>
+                <text class="card-title">{{item.name}}</text>
+            </view>
+            <view>
+                <text class="card-desc">{{item.description}}</text>
+            </view>
+        </view>
+    </navigator>
+</view>
   </view>
 </scroll-view>

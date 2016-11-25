@@ -14,9 +14,21 @@ Page({
     interval: 5000,
     duration: 1000,
     feed: [],
-    feed_length: 0
+    feed_length: 0,
+    list: []
   },
   onLoad: function () {
+      wx.request({
+        url: 'http://news-at.zhihu.com/api/4/themes',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          that.setData({
+            list: res.data.others
+          })
+        }
+      }),
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
