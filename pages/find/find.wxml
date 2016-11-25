@@ -27,24 +27,21 @@
           </a>
         </view>
         <view class="feed-content">
-          <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
+          <view class="question" qid="{{question_id}}" bindtap="bindActTap">
             <a class="question-link">
               <text>{{item.question}}</text>
             </a>
           </view>
           <view class="answer-body">
-            <view bindtap="bindQueTap">
+            <view bindtap="bindActTap">
               <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
             </view>
-            <view class="answer-actions" bindtap="bindQueTap">
+            <view class="answer-actions" bindtap="bindActTap">
               <view class="like dot">
                 <a>{{item.good_num}} 赞同 </a>
               </view>
-              <view class="comments dot">
+              <view class="comments">
                 <a>{{item.comment_num}} 评论 </a>
-              </view>
-              <view class="follow-it">
-                <a>关注问题</a>
               </view>
             </view>
           </view>
@@ -86,11 +83,8 @@
               <view class="like dot">
                 <a>{{item.good_num}} 赞同 </a>
               </view>
-              <view class="comments dot">
+              <view class="comments">
                 <a>{{item.comment_num}} 评论 </a>
-              </view>
-              <view class="follow-it">
-                <a>关注问题</a>
               </view>
             </view>
           </view>

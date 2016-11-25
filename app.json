@@ -8,7 +8,9 @@
     "pages/aboutme/aboutme",
     "pages/bloglist/bloglist",
     "pages/questionDetail/questionDetail",
+    "pages/actDetail/actDetail",
     "pages/blogdetail/blogdetail",
+    "pages/stateDetail/stateDetail",
     "pages/logs/logs"
     
   ],
