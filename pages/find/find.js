@@ -47,7 +47,7 @@ Page({
   },
   bindQueTap: function() {
     wx.navigateTo({
-      url: '../question/question'
+      url: '../questionDetail/questionDetail'
     })
   },
   upper: function () {
