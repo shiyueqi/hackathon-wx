@@ -1,6 +1,6 @@
-var sourceType = [ ['camera'], ['album'], ['camera', 'album'] ]
-var sizeType = [ ['compressed'], ['original'], ['compressed', 'original'] ]
-
+var sourceType = [['camera'], ['album'], ['camera', 'album']]
+var sizeType = [['compressed'], ['original'], ['compressed', 'original']]
+var Util = require( '../../utils/util.js' )
 Page({
   data: {
     sourceTypeIndex: 2,
@@ -8,13 +8,13 @@ Page({
 
     sizeTypeIndex: 2,
     sizeType: ['压缩', '原图', '压缩或原图'],
-    uploadImgSrc:"",
+    uploadImgSrc: "",
 
     countIndex: 8,
     count: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     lines: [
-                {id:1},{id:2},{id:3},{id:4},{id:5},{id:6}
-            ]
+      { id: 1 }, { id: 2 }, { id: 3 }
+    ]
   },
   sourceTypeChange: function (e) {
     this.setData({
@@ -43,7 +43,7 @@ Page({
         that.setData({
           imageList: res.tempFilePaths,
           uploadImgSrc: res.tempFilePaths[0]
-          
+
         })
       }
     })
@@ -57,11 +57,26 @@ Page({
     })
   },
   //条件状态
-   formSubmit: function(e) {
+  formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/content/contents',
+      data: Util.json2Form({
+        userId: '1',
+        content:  e.detail.value.input0+e.detail.value.input1+e.detail.value.input2,
+        pics:''
+      }),
+      header: {
+        'Content-Type': "application/x-www-form-urlencoded"
+      },
+      method: "POST",
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
   },
-    formReset: function(e) {
-   
+  formReset: function (e) {
+
   }
 })
 

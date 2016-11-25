@@ -1,5 +1,10 @@
  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+    <view class="section__title">标题</view>
+    <input name="input" placeholder="这里写标题"style="height:47rpx" />
+  </view>
  <view class="input-container">
+<view class="section__title">内容</view>
     <view style="height:47rpx" wx:for="{{lines}}">
 
       <input type="text" placeholder="" name="input{{index}}"/>

@@ -1,9 +1,8 @@
-
 <scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
   <view class="search flex-wrp">
     <view class="search-left flex-item">
       <image src="../../image/search.png"></image>
-      <input placeholder="搜索活动, 问题或文章" placeholder-class="search-placeholder" />
+      <input placeholder="搜索活动, 问题或文章" placeholder-class="search-placeholder" bindinput="test" />
     </view>
     <view class="search-right flex-item" bindtap="actionSheetTap">
       <image src="../../image/add.png"></image>
@@ -18,27 +17,23 @@
           </view>
           <text>{{item.feed_source_name}}</text>
         </a> 
-
-       
       </view>
       <view class="feed-content">
-
         <view class="question" qid="{{question_id}}" bindtap="bindStateTap">
           <a class="question-link">
             <text>{{item.question}}</text>
           </a> 
         </view>
-
         <view class="answer-body">
           <view bindtap="bindStateTap">
             <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
             <image src="../../image/24280.jpg" class="card-image"></image>
           </view>
-
           <view class="answer-actions">
             <view class="like">
-              <a bindtap="doPraise">{{item.good_num}} <image src="../../image/praise_normal.png" class="praiseImg"></image> </a> 
-
+              <a bindtap="doPraise">{{item.good_num}}
+                <image src="../../image/praise_normal.png" class="praiseImg"></image>
+              </a> 
             </view>
           </view>
         </view>
@@ -46,13 +41,13 @@
     </view>
   </block>
 </scroll-view>
-
-
 <view>
-    <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
-      <block wx:for="{{actionSheetItems}}">
-        <action-sheet-item class="item" bindtap="bind{{item.id}}">{{item.content}}</action-sheet-item>
-      </block>
-      <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
-    </action-sheet>
-  </view>
+  <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+    <block wx:for="{{actionSheetItems}}">
+      <action-sheet-item class="item" bindtap="bind{{item.id}}">{{item.content}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+  </action-sheet>
+</view>
+ <modal title="标题" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="modalChange">
+  </modal>
