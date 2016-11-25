@@ -5,7 +5,8 @@ var app = getApp()
 Page({
   data: {
     motto: '',
-    userInfo: {}
+    userInfo: {},
+    contentId: ''
   },
   //事件处理函数
   bindItemTap: function () {
@@ -21,7 +22,8 @@ Page({
     app.getUserInfo(function (userInfo) {
       //更新数据
       that.setData({
-        userInfo: userInfo
+        userInfo: userInfo,
+        contentId: options.contentId
       })
     })
   },
