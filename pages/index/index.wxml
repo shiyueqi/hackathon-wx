@@ -22,23 +22,23 @@
        
       </view>
       <view class="feed-content">
+
         <view class="question" qid="{{question_id}}" bindtap="bindStateTap">
           <a class="question-link">
             <text>{{item.question}}</text>
           </a> 
         </view>
+
         <view class="answer-body">
           <view bindtap="bindStateTap">
             <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
             <image src="../../image/24280.jpg" class="card-image"></image>
           </view>
-          <view class="answer-actions" bindtap="bindStateTap">
-            <view class="like dot">
-              <a>{{item.good_num}} 赞同 </a> 
-            </view>
-            <view class="comments">
-              <a>{{item.comment_num}} 评论 </a> 
-   
+
+          <view class="answer-actions">
+            <view class="like">
+              <a bindtap="doPraise">{{item.good_num}} <image src="../../image/praise_normal.png" class="praiseImg"></image> </a> 
+
             </view>
           </view>
         </view>

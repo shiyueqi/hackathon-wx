@@ -136,3 +136,12 @@
 .container .feed-item .feed-content .answer-actions .dot ::after{
   content: "•";
 }
+
+.praiseImg{
+  display: inline-block;
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 45rpx;
+  top: 10rpx;
+  vertical-align: middle;
+}

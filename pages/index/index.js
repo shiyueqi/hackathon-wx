@@ -17,7 +17,9 @@ Page({
   //事件处理函数
 
 
+  doPraise: function() {
 
+  },
   bindStateTap: function() {
     wx.navigateTo({
       url: '../stateDetail/stateDetail'
