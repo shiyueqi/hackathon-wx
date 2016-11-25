@@ -15,7 +15,8 @@ Page({
     hidden: "none",
     comment: "",
     flag: false,
-    praiseImg: '../../image/praise_normal.png'
+    praiseImg: '../../image/praise_normal.png',
+    praiseCount: ''
 
   },
   doPraise: function () {
@@ -32,7 +33,7 @@ Page({
         console.log(res.data);
         if (res.data.code == 1) {
           that.setData({
-
+            praiseCount: that.data.praiseCount+1
           });
         }
       }
@@ -73,7 +74,8 @@ Page({
       success: function (res) {
         console.log(res.data);
         that.setData({
-          content: res.data
+          content: res.data,
+          praiseCount: res.data.praiseCount
         });
       }
     })

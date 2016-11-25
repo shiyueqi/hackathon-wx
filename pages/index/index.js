@@ -25,7 +25,6 @@ Page({
 
   bindStateTap: function(event) {
     var contentId = event.target.dataset.contentid;
-    console.log(contentId)
     wx.navigateTo({
       url: '../stateDetail/stateDetail?contentId='+ contentId
 
