@@ -1,0 +1,12 @@
+.about{
+
+}
+.about-wei {
+    text-align: center,
+}
+.about-img {
+    display: block;width: 120px;height: 110px;margin: 5px auto 0
+}
+.about-title {
+    display: inline-block;margin: 30px, 0;
+}

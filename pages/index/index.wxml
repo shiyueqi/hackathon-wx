@@ -1,0 +1,36 @@
+
+<!--index.wxml-->
+<scroll-view scroll-y="true" class="container" bindscrolltoupper="upper" upper-threshold="5" lower-threshold="5" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="search flex-wrp">
+    <view class="search-left flex-item">
+      <image src="../../image/search.png"></image>
+      <input placeholder="搜索活动, 问题或文章" placeholder-class="search-placeholder" />
+    </view>
+    <view class="search-right flex-item" bindtap="actionSheetTap">
+      <image src="../../image/add.png"></image>
+    </view>
+  </view>
+  <view class="news-item-container">
+    <block wx:for="{{list}}" wx:for-index="id">
+      <text wx:if="{{item.header}}" class="sub-title">{{item.header}}</text>
+      <navigator wx:else url="../detail/detail?id={{item.id}}">
+        <view class="news-item">
+          <view class="news-item-left">
+            <text class="news-item-title">{{item.title}}</text>
+          </view>
+          <view class="news-item-right">
+            <image src="{{item.images[0]}}" class="news-image" />
+          </view>
+        </view>
+      </navigator>
+    </block>
+    <button type="primary" class="load-btn" loading="{{loading}}" plain="{{plain}}" bindtap="loadMore"> 下拉加载 </button>
+  </view>
+  <view>
+   <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+        <block wx:for="{{actionSheetItems}}">
+          <action-sheet-item class="item" bindtap="bind{{item}}">{{item}}</action-sheet-item>
+        </block>
+        <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+      </action-sheet>
+      </view>

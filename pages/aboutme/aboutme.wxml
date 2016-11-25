@@ -1,0 +1,12 @@
+<!--about.wxml-->
+<view class="about">
+<view class="about-wei">
+ <view class="about-img"><image src='{{img}}' ></image></view>
+<view class="about-title">{{title}}</view>
+</view>
+<view>{{intro}}</view>
+<view>{{contact}}</view>
+<view>{{address}}</view>
+<view>{{phone}}</view>
+<view>{{code}}</view>
+</view>

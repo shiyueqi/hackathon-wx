@@ -1,0 +1,24 @@
+<view class="container">
+<template name="lists">
+ <navigator url="../../pages/detail/detail?id={{id}}" hover-class="navigator-hover">
+  <view class="about-img"><image src='{{img}}' ></image>
+
+  </view>
+<view>
+<view>{{title}}</view>
+<view>{{cTime}}</view>
+</view>
+</navigator>
+</template>
+
+<view wx:for="{{newsList}}">
+<template is="lists" data="{{...item}}"/>
+
+</view>
+
+<view bindtap="loadmore" data-lastid="{{lastid}}" data-isfirst="{{isfirst}}" >加载更多</view>
+<toast hidden="{{toastHidden}}" bindchange="toastChange">没有更多文章了</toast>
+<modal title="温馨提示" no-cancel confirm-text="确定" hidden="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="modalChange">
+      您现在不在WiFi条件下，将会产生流量费用
+    </modal>
+</view>
