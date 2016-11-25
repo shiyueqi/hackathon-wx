@@ -73,10 +73,28 @@ function getDiscovery(){
 function discoveryNext(){
   return discovery_next.next;
 }
+function encodeURIStr(str){ 
+    var regexs = new Array(new RegExp(',', 'g'), 
+                      new RegExp('/', 'g'), 
+                      new RegExp('\?', 'g'), 
+                      new RegExp(':', 'g'), 
+                      new RegExp('@', 'g'), 
+                      new RegExp('&', 'g'), 
+                      new RegExp('=', 'g'), 
+                      new RegExp('\+', 'g'), 
+                      new RegExp('\$', 'g'), 
+                      new RegExp('#', 'g') 
+      ); 
+    var replaces = new Array('%2C','%2F','%3F','%3A','%40','%26','%3D','%2B','%24','%23'); 
+    for (var i = 0; i < regexs.length; i++){ 
+        str = str.replace(regexs[i], replaces[i]); 
+    } 
+    return str; 
+}
 function json2Form(json) {  
     var str = [];  
     for(var p in json){  
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(json[p]));  
+        str.push(encodeURIComponent(encodeURIComponent(p)) + "=" + encodeURIComponent(encodeURIComponent(json[p])));  
     }  
     return str.join("&");  
 }  

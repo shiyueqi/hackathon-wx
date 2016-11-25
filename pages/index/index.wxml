@@ -65,4 +65,7 @@
   </action-sheet>
 </view>
  <modal title="标题" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="modalChange">
+  <view>在活动中搜索：{{searchInput}}</view>
+  <view>在问答中搜索: {{searchInput}}</view>
+  <view>在文章中搜索：{{searchInput}}</view>
   </modal>

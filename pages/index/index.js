@@ -16,7 +16,8 @@ Page({
     modalHidden: true,
     content: [],
     pageNum: 1,
-    pageSize: 5
+    pageSize: 5,
+    searchInput: ""
 
   },
   //事件处理函数
@@ -32,9 +33,11 @@ Page({
 
     })
   },
-  test: function(){
+  test: function(e){
   this.setData({
+    searchInput: e.detail.value,
     modalHidden: false
+    
   })
   },
   onLoad: function () {
