@@ -1,110 +1,26 @@
-//index.js
-//获取应用实例
-// var app = getApp()
-// var utils = require('../../utils/util.js')
-// Page({
-//   data: {
-//     list: [],
-//     duration: 2000,
-//     indicatorDots: true,
-//     autoplay: true,
-//     interval: 3000,
-//     loading: false,
-//     plain: false,
-//     actionSheetItems: ["状态","活动","文章","签到","问题"],
-//     actionSheetHidden: true,
-    
-//   },
-//   //事件处理函数
-//   bindViewTap(e) {
-//     wx.navigateTo({
-//       url: '../detail/detail?id=' + e.target.dataset.id
-//     })
-//   },
-//   loadMore (e) {
-//     if (this.data.list.length === 0) return
-//     var date = this.getNextDate()
-//     var that = this
-//     that.setData({ loading: true })
-//     wx.request({
-//       url: 'http://news.at.zhihu.com/api/4/news/before/' + (Number(utils.formatDate(date)) + 1),
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       success (res) {
-//          that.setData({
-//            loading: false,
-//            list: that.data.list.concat([{ header: utils.formatDate(date, '-') }]).concat(res.data.stories)
-//          })
-//       }
-//     })
-//   },
-//   getNextDate (){
-//     const now = new Date()
-//     now.setDate(now.getDate() - this.index++)
-//     return now
-//   },
-//   actionSheetChange: function(){
-//     this.setData({
-//       actionSheetHidden: !this.data.actionSheetHidden
-//     })
-//   },
-//   actionSheetTap: function(){
-//  this.setData({
-//       actionSheetHidden: !this.data.actionSheetHidden
-//     })
-//   },
-//   onLoad () {
-//     let that = this
-//     wx.request({
-//       url: 'http://news-at.zhihu.com/api/4/news/latest',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       success (res) {
-//          that.setData({
-//            banner: res.data.top_stories,
-//            list: [{ header: '状态' }].concat(res.data.stories)
-//          })
-//       }
-//     })
-//     this.index = 1
-//     //调用应用实例的方法获取全局数据
-//     // app.getUserInfo(function(userInfo){
-//     //   //更新数据
-//     //   that.setData({
-//     //     userInfo:userInfo
-//     //   })
-//     // })
-    
-//   }
-// })
-
-//index.js
-
 var util = require('../../utils/util.js')
 var app = getApp()
 Page({
   data: {
-     list: [],
+    list: [],
     duration: 2000,
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
     loading: false,
     plain: false,
-    actionSheetItems: ["状态","活动","文章","签到","问题"],
+    actionSheetItems: [{ id: 1, content: "状态" }, { id: 2, content: "活动" }, { id: 3, content: "文章" }, { id: 4, content: "签到" }, { id: 5, content: "问题" }],
     actionSheetHidden: true,
     feed: [],
     feed_length: 0
   },
   //事件处理函数
-  bindItemTap: function() {
+  bindItemTap: function () {
     wx.navigateTo({
       url: '../answer/answer'
     })
   },
-  bindQueTap: function() {
+  bindQueTap: function () {
     wx.navigateTo({
       url: '../question/question'
     })
@@ -119,12 +35,12 @@ Page({
     wx.showNavigationBarLoading()
     this.refresh();
     console.log("upper");
-    setTimeout(function(){wx.hideNavigationBarLoading();wx.stopPullDownRefresh();}, 2000);
+    setTimeout(function () { wx.hideNavigationBarLoading(); wx.stopPullDownRefresh(); }, 2000);
   },
   lower: function (e) {
     wx.showNavigationBarLoading();
     var that = this;
-    setTimeout(function(){wx.hideNavigationBarLoading();that.nextLoad();}, 1000);
+    setTimeout(function () { wx.hideNavigationBarLoading(); that.nextLoad(); }, 1000);
     console.log("lower")
   },
   //scroll: function (e) {
@@ -132,28 +48,28 @@ Page({
   //},
 
   //网络请求数据, 实现首页刷新
-  refresh0: function(){
+  refresh0: function () {
     var index_api = '';
     util.getData(index_api)
-        .then(function(data){
-          //this.setData({
-          //
-          //});
-          console.log(data);
-        });
+      .then(function (data) {
+        //this.setData({
+        //
+        //});
+        console.log(data);
+      });
   },
 
   //使用本地 fake 数据实现刷新效果
-  getData: function(){
+  getData: function () {
     var feed = util.getData2();
     console.log("loaddata");
     var feed_data = feed.data;
     this.setData({
-      feed:feed_data,
+      feed: feed_data,
       feed_length: feed_data.length
     });
   },
-  refresh: function(){
+  refresh: function () {
     wx.showToast({
       title: '刷新中',
       icon: 'loading',
@@ -163,21 +79,21 @@ Page({
     console.log("loaddata");
     var feed_data = feed.data;
     this.setData({
-      feed:feed_data,
+      feed: feed_data,
       feed_length: feed_data.length
     });
-    setTimeout(function(){
+    setTimeout(function () {
       wx.showToast({
         title: '刷新成功',
         icon: 'success',
         duration: 2000
       })
-    },3000)
+    }, 3000)
 
   },
 
   //使用本地 fake 数据实现继续加载效果
-  nextLoad: function(){
+  nextLoad: function () {
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -190,24 +106,96 @@ Page({
       feed: this.data.feed.concat(next_data),
       feed_length: this.data.feed_length + next_data.length
     });
-    setTimeout(function(){
+    setTimeout(function () {
       wx.showToast({
         title: '加载成功',
         icon: 'success',
         duration: 2000
       })
-    },3000)
+    }, 3000)
   },
-   actionSheetChange: function(){
+  actionSheetChange: function () {
     this.setData({
       actionSheetHidden: !this.data.actionSheetHidden
     })
   },
-  actionSheetTap: function(){
- this.setData({
+  actionSheetTap: function () {
+    this.setData({
       actionSheetHidden: !this.data.actionSheetHidden
     })
+  },
+  //跳转到发布状态的界面
+  bind1: function(e){
+    wx.navigateTo({
+      url: '../statusPost/statusPost',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
-
-
+,
+//跳转活动发布界面
+bind2: function(e){
+      wx.navigateTo({
+      url: '../activityPost/activityPost',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+},
+//跳转文章发布界面
+bind3: function(e){
+      wx.navigateTo({
+      url: '../blogPost/blogPost',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+},
+bind4: function(e){
+       wx.navigateTo({
+      url: '../signPost/signPost',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+},
+bind5: function(e){
+     wx.navigateTo({
+      url: '../questionPost/questionPost',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+}
 })

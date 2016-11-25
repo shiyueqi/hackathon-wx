@@ -1,6 +1,6 @@
 <!--theme.wxml-->
 <view class="container">
-    <navigator class="card" url="../list/list?id={{item.id}}&title={{item.name}}"  wx:for="{{list}}">
+    <navigator class="card" url="../blogdetail/blogdetail?id={{item.id}}&title={{item.name}}"  wx:for="{{list}}">
         <image src="{{item.thumbnail}}" class="card-image"></image>
         <view class="card-content">
             <view>

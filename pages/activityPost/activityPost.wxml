@@ -1,0 +1,15 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <view class="section">
+    <view class="section__title">活动标题</view>
+    <input name="title" placeholder="" />
+    <view class="section">
+    <view class="section__title">活动内容</view>
+    <input name="content" placeholder="" />
+    </view>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </view>
+</form>

@@ -9,6 +9,11 @@
     "pages/bloglist/bloglist",
     "pages/questionDetail/questionDetail",
     "pages/blogdetail/blogdetail",
+    "pages/statusPost/statusPost",
+    "pages/activityPost/activityPost",
+    "pages/blogPost/blogPost",
+    "pages/signPost/signPost",
+    "pages/questionPost/questionPost",
     "pages/logs/logs"
     
   ],

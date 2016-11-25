@@ -55,6 +55,6 @@
     <text>问答</text>
   </view>
   <view class="ctnt2 placehold" hidden="{{currentNavtab==2 ? '' : true}}">
-    <text>文章</text>
+    <text>某人的邀请</text>
   </view>
 </scroll-view>

@@ -12,6 +12,11 @@ Page({
       url: ''
     })
   },
+  myBlogList: function(){
+ wx.navigateTo({
+      url: '../bloglist/bloglist'
+    })
+    },
   onLoad: function () {
     console.log('onLoad')
     var that = this
