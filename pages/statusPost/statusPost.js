@@ -11,7 +11,10 @@ Page({
     uploadImgSrc:"",
 
     countIndex: 8,
-    count: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    count: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    lines: [
+                {id:1},{id:2},{id:3},{id:4},{id:5},{id:6}
+            ]
   },
   sourceTypeChange: function (e) {
     this.setData({

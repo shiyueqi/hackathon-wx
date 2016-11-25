@@ -1,1 +1,27 @@
-I am blog post
+ <form bindsubmit="formSubmit" bindreset="formReset">
+ <view class="input-container">
+    <view style="height:47rpx" wx:for="{{lines}}">
+
+      <input type="text" placeholder="" name="input{{index}}"/>
+      <!--<input type="text" placeholder="" name="input{{index}}"/>
+      <input type="text" placeholder="" name="input{{index}}"/>
+      <input type="text" placeholder="" name="input{{index}}"/>-->
+    </view>
+  </view>
+<view class="tabbar">
+    
+    <view class="item" style="width:50%">
+    <button formType="reset" type="default" >
+      <image class="icon" mode="aspectFit"  src="../../image/cancel.png">
+      
+      </image>
+      </button>
+    </view>
+    <view class="item" style="width:50%">
+    <button formType="submit" type="default">
+      <image class="icon" mode="aspectFit"  src="../../image/ok.png">
+      </image></button>
+    </view>
+  </view>
+  
+  </form>
