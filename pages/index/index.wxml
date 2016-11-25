@@ -45,7 +45,7 @@
                     <view class="avatar">
                         <image src="{{item.feed_source_img}}"></image>
                     </view>
-                    <text>{{item.feed_source_name}}{{item.feed_source_txt}}</text>
+                    <text>{{item.feed_source_name}}</text>
                 </a>
                 <!--<image class="item-more" mode="aspectFit" src="../../image/more.png"></image>-->
             </view>
@@ -56,19 +56,16 @@
                     </a>
                 </view>
                 <view class="answer-body">
-                    <view bindtap="bindItemTap">
+                    <view bindtap="bindQueTap">
                         <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
                         <image src="../../image/24280.jpg" class="card-image"></image>
                     </view>
-                    <view class="answer-actions" bindtap="bindItemTap">
+                    <view class="answer-actions" bindtap="bindQueTap">
                         <view class="like dot">
                             <a>{{item.good_num}} 赞同 </a>
                         </view>
-                        <view class="comments dot">
+                        <view class="comments">
                             <a>{{item.comment_num}} 评论 </a>
-                        </view>
-                        <view class="follow-it">
-                            <a>关注问题</a>
                         </view>
                     </view>
                 </view>
