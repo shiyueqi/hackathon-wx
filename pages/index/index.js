@@ -15,14 +15,13 @@ Page({
     feed_length: 0
   },
   //事件处理函数
-  bindItemTap: function () {
+
+
+
+  bindStateTap: function() {
     wx.navigateTo({
-      url: '../answer/answer'
-    })
-  },
-  bindQueTap: function () {
-    wx.navigateTo({
-      url: '../question/question'
+      url: '../stateDetail/stateDetail'
+
     })
   },
   onLoad: function () {

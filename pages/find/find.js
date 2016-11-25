@@ -40,9 +40,9 @@ Page({
     });
   },
 
-  bindItemTap: function() {
+  bindActTap: function() {
     wx.navigateTo({
-      url: '../answer/answer'
+      url: '../actDetail/actDetail'
     })
   },
   bindQueTap: function() {

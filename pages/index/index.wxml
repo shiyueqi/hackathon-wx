@@ -19,7 +19,7 @@
           <text>{{item.feed_source_name}}</text>
         </a> 
 
-        <!--<image class="item-more" mode="aspectFit" src="../../image/more.png"></image>-->
+       
       </view>
       <view class="feed-content">
         <view class="question" qid="{{question_id}}" bindtap="bindQueTap">
@@ -38,6 +38,7 @@
             </view>
             <view class="comments">
               <a>{{item.comment_num}} 评论 </a> 
+   
             </view>
           </view>
         </view>
