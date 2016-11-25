@@ -13,8 +13,9 @@ Page({
       url: '../answer/answer'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
     console.log('onLoad')
+    console.log(options.contentId)
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){

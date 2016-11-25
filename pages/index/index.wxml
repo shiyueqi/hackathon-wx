@@ -30,7 +30,7 @@
         </view>
 
         <view class="answer-body">
-          <view bindtap="bindStateTap">
+          <view bindtap="bindStateTap" data-contentId="{{item.contentId}}">
             <text class="answer-txt" aid="{{answer_id}}">{{item.content}}</text>
             <image src="../../image/24280.jpg" class="card-image"></image>
           </view>

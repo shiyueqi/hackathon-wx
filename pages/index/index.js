@@ -21,9 +21,11 @@ Page({
   doPraise: function() {
 
   },
-  bindStateTap: function() {
+  bindStateTap: function(event) {
+    var contentId = event.target.dataset.contentId;
+    console.log(contentId);
     wx.navigateTo({
-      url: '../stateDetail/stateDetail'
+      url: '../stateDetail/stateDetail?contentId='+ contentId
 
     })
   },

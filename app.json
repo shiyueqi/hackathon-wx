@@ -15,10 +15,9 @@
     "pages/activityPost/activityPost",
     "pages/blogPost/blogPost",
     "pages/signPost/signPost",
-    "pages/questionPost/questionPost",
-
     "pages/stateDetail/stateDetail",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/questionPost/questionPost"
     
   ],
   "window":{
