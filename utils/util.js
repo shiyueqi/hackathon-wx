@@ -73,7 +73,14 @@ function getDiscovery(){
 function discoveryNext(){
   return discovery_next.next;
 }
-
+function json2Form(json) {  
+    var str = [];  
+    for(var p in json){  
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(json[p]));  
+    }  
+    return str.join("&");  
+}  
+module.exports.json2Form = json2Form;  
 
 module.exports.getData = getData;
 module.exports.getData2 = getData2;

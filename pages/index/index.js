@@ -11,9 +11,13 @@ Page({
     plain: false,
     actionSheetItems: [{ id: 1, content: "状态" }, { id: 2, content: "活动" }, { id: 3, content: "文章" }, { id: 4, content: "签到" }, { id: 5, content: "问题" }],
     actionSheetHidden: true,
+    feed: [],
+    feed_length: 0,
+    modalHidden: true,
     content: [],
     pageNum: 1,
     pageSize: 5
+
   },
   //事件处理函数
 
@@ -28,6 +32,11 @@ Page({
       url: '../stateDetail/stateDetail?contentId='+ contentId
 
     })
+  },
+  test: function(){
+  this.setData({
+    modalHidden: false
+  })
   },
   onLoad: function () {
     console.log('onLoad')
@@ -242,6 +251,11 @@ bind4: function(e){
       }
     })
 },
+modalChange: function(e) {
+    this.setData({
+      modalHidden: true
+    })
+  },
 bind5: function(e){
      wx.navigateTo({
       url: '../questionPost/questionPost',

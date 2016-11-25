@@ -75,6 +75,10 @@
                     <image src="../../image/comment.png"></image>
                     <text>302</text>
                 </view>
+                <view class="operation-btn flex-item">
+                <image src="../../image/money.png"></image>
+                    <text>打赏</text>
+                </view>
 
             </view>
         </view>
