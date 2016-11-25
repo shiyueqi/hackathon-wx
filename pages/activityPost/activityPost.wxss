@@ -1,0 +1,32 @@
+.btn-left{
+display: block;
+width: 50%;
+float: left
+}
+
+.btn-right{
+display: block;
+width: 50%;
+float: right
+}
+.input-container {
+  height: 80%;
+  background-color: #eceff4;
+  background-image: linear-gradient(#E1E6EA .1em, transparent .1em);
+  background-size: 100% 48rpx;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0 10rpx;
+}
+
+.input-container input{
+  height: 47rpx;
+  max-height: 47rpx;
+  font-size: 28rpx;
+  margin: 0px;
+}
+
+.action-item, .action-cacel {
+  font-size: 30rpx;
+  color: #39b5de;
+}

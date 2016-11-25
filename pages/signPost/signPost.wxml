@@ -1,1 +1,6 @@
-I am sign
+<scroll-view class="container" id="map" scroll-y="true">
+  <view>
+    <text class="text">开发工具暂时不支持map组件,支持时可以增加依靠地理位置的签到、打卡</text>
+  </view>
+  <map longitude="{{point.longitude}}" latitude="{{point.latitude}}" markers="{{markers}}" covers="{{covers}}" scale="16" style="width: 320px; height:420px;"></map>
+</scroll-view>

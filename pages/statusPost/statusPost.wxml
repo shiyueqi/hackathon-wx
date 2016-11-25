@@ -1,11 +1,11 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view class="section">
-    <view class="section__title"></view>
-    <input name="input" placeholder="写点什么" />
+  <view class="input-container"  wx:for="{{lines}}">
+   
+    <input name="input{{index}}" style="height:47rpx"  placeholder="" />
   </view>
-  <view class="btn-area">
-    <button formType="submit">提交</button>
-    <button formType="reset">重置</button>
+  <view class="">
+    <button formType="submit" class="btn-left" type="default">提交</button>
+    <button formType="reset" class="btn-right" type="default">重置</button>
   </view>
   <view class="images-wrapper">
     <text class="images-text">请选择图片</text>

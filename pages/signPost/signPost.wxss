@@ -1,0 +1,7 @@
+#map {
+  padding: 40rpx;
+}
+.text{
+  background-color: #eee;
+  font-size: 40px
+}

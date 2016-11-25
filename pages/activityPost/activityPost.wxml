@@ -1,15 +1,15 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
-
   <view class="section">
     <view class="section__title">活动标题</view>
     <input name="title" placeholder="" />
-    <view class="section">
-    <view class="section__title">活动内容</view>
-    <input name="content" placeholder="" />
+    <view class="input-container">
+      <view class="section__title" wx:for="{{lines}}">
+      <input name="input{{index}}" placeholder="" />
+      </view>
     </view>
   </view>
   <view class="btn-area">
-    <button formType="submit">Submit</button>
-    <button formType="reset">Reset</button>
+    <button formType="submit" class="btn-left" type="default">Submit</button>
+    <button formType="reset" class="btn-right" type="default">Reset</button>
   </view>
 </form>
