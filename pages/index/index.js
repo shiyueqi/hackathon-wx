@@ -23,11 +23,9 @@ Page({
   //事件处理函数
 
 
-  doPraise: function() {
-
-  },
   bindStateTap: function(event) {
     var contentId = event.target.dataset.contentid;
+    console.log(contentId)
     wx.navigateTo({
       url: '../stateDetail/stateDetail?contentId='+ contentId
 

@@ -10,7 +10,7 @@
       <view class="que-follow">
         <view class="left">
           <view class="watch">
-            <image src="../../image/praise_normal.png"></image>
+            <image src="{{praiseImg}}" bindtap="doPraise"></image>
             <text>{{content.praiseCount}}</text>
           </view>
           <view class="comment">
@@ -38,7 +38,7 @@
   </view>
   <block wx:for="{{comment}}" wx:for-index="idx" wx:for-item="item">
     <view class="answer-feed">
-      <view bindtap="bindItemTap" class="feed-item">
+      <view class="feed-item">
         <view class="feed-source">
           <a class="" bindTap="">
             <view class="avatar">

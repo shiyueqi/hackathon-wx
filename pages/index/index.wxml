@@ -20,7 +20,7 @@
         </a> 
       </view>
       <view class="feed-content">
-        <view class="question" qid="{{question_id}}" bindtap="bindStateTap">
+        <view class="question" qid="{{question_id}}" bindtap="bindStateTap" data-contentId="{{item.contentId}}">
           <a class="question-link">
             <text>{{item.question}}</text>
           </a> 

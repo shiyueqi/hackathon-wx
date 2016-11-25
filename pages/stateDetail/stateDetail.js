@@ -9,11 +9,37 @@ Page({
     contentId: '',
     pageNum: 1,
     pageSize: 5,
+
     content: [],
     comment: [],
     hidden: "none",
     comment: "",
-    flag: false
+    flag: false,
+    praiseImg: '../../image/praise_normal.png'
+
+  },
+  doPraise: function () {
+    var that = this;
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/content/' + that.data.contentId,
+      method: 'post',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 1) {
+          that.setData({
+
+          });
+        }
+      }
+    })
+    this.setData({
+      praiseImg: '../../image/praise_pressed.png'
+    })
   },
   //事件处理函数
   bindItemTap: function () {
@@ -24,7 +50,7 @@ Page({
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
-
+   
     that.setData({
       contentId: options.contentId
     });
@@ -83,7 +109,7 @@ Page({
     var that = this
     console.log(this.data.contentId)
     wx.request({
-      url: 'http://172.21.101.175:11000/uplus/comments/content/20',
+      url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
       data: util.json2Form({
         userId: '1',
         comment: e.detail.value.comment
@@ -95,9 +121,11 @@ Page({
       },
       success: function (res) {
         console.log(res.data)
-        if(res.data.code=="1"){
+        if (res.data.code == "1") {
           that.setData({
-            flag: true
+            flag: true,
+            hidden: "none"
+
           })
         }
       }
