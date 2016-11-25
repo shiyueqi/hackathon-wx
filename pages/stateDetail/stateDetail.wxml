@@ -11,7 +11,7 @@
         <view class="left">
           <view class="watch">
             <image src="{{praiseImg}}" bindtap="doPraise"></image>
-            <text>{{content.praiseCount}}</text>
+            <text>{{praiseCount}}</text>
           </view>
           <view class="comment">
             <image src="../../image/comment2.png"></image>
