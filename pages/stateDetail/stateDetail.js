@@ -10,8 +10,32 @@ Page({
     pageNum: 1,
     pageSize: 5,
     content:[],
-    comment:[]
+    comment:[],
+    praiseImg:'../../image/praise_normal.png'
   },
+  doPraise: function() {
+    var that = this;
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/content/'+that.data.contentId,
+      method: 'post',
+      data: {
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res.data);
+        if(res.data.code == 1){
+            that.setData({
+              
+            });
+        }
+      }
+    })    
+    this.setData({
+      praiseImg: '../../image/praise_pressed.png'
+    })
+  },  
   //事件处理函数
   bindItemTap: function () {
     wx.navigateTo({
