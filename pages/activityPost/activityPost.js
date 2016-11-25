@@ -13,7 +13,8 @@ Page({
       id: 24, name: "足球"
     }, { id: 25, name: "DOAT" }
     ],
-    id: ""
+    id: "",
+    toast1Hidden: true
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', this.data.names[e.detail.value])
@@ -47,13 +48,17 @@ for(var key in this.data.array[i]){
     userId: "1",
     title:  e.detail.value.title,
     content:  e.detail.value.content,
-    typeSub: id
+    typeSub: id,
+    pics: ""
   }),
   method: "POST",
   header: {
       'Content-Type': "application/x-www-form-urlencoded"
   },
   success: function(res) {
+    if(res.data.code=="1"){
+     that.toast1Tap()
+    }
     console.log(res.data)
   }
 })
@@ -61,5 +66,15 @@ for(var key in this.data.array[i]){
   },
   formReset: function () {
     console.log('form发生了reset事件')
+  },
+  toast1Change: function(){
+    this.setData({
+      toast1Hidden: true
+    })
+  },
+  toast1Tap: function(){
+     this.setData({
+      toast1Hidden: false
+    })
   }
 })

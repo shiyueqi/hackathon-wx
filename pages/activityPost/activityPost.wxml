@@ -21,3 +21,9 @@
     <button formType="reset" class="btn-right" type="default">Reset</button>
   </view>
 </form>
+<view class="body-view">
+  <toast hidden="{{toast1Hidden}}" bindchange="toast1Change" duration="1000">
+    添加成功
+  </toast>
+  
+</view>
