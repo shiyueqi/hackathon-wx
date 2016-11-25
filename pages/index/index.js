@@ -11,8 +11,9 @@ Page({
     plain: false,
     actionSheetItems: [{ id: 1, content: "状态" }, { id: 2, content: "活动" }, { id: 3, content: "文章" }, { id: 4, content: "签到" }, { id: 5, content: "问题" }],
     actionSheetHidden: true,
-    feed: [],
-    feed_length: 0
+    content: [],
+    pageNum: 1,
+    pageSize: 5
   },
   //事件处理函数
 
@@ -30,18 +31,21 @@ Page({
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
-    this.getData();
+    this.refresh0();
   },
   upper: function () {
-    wx.showNavigationBarLoading()
-    this.refresh();
+    wx.showNavigationBarLoading();
+    this.setData({
+      pageNum: 1
+    });
+    this.refresh0();
     console.log("upper");
     setTimeout(function () { wx.hideNavigationBarLoading(); wx.stopPullDownRefresh(); }, 2000);
   },
   lower: function (e) {
     wx.showNavigationBarLoading();
     var that = this;
-    setTimeout(function () { wx.hideNavigationBarLoading(); that.nextLoad(); }, 1000);
+    setTimeout(function () { wx.hideNavigationBarLoading(); that.nextRefresh0(); }, 1000);
     console.log("lower")
   },
   //scroll: function (e) {
@@ -50,14 +54,65 @@ Page({
 
   //网络请求数据, 实现首页刷新
   refresh0: function () {
-    var index_api = '';
-    util.getData(index_api)
-      .then(function (data) {
-        //this.setData({
-        //
-        //});
-        console.log(data);
+    var that = this;
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/content/contents',
+      data: {
+        page: this.data.pageNum ,
+        pageSize: this.data.pageSize
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res.data.contents);
+          that.setData({
+          content: res.data.contents
       });
+      }
+    })
+  },
+
+  nextRefresh0:function () {
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading'
+    });
+    that.setData({
+      pageNum : that.data.pageNum+1
+    });
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/content/contents',
+      data: {
+        pageNum: this.data.pageNum ,
+        pageSize: this.data.pageSize
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        wx.hideToast();
+        var newData = res.data.contents;
+        if(newData.length == 0){
+          wx.showToast({
+            title: '已无更多状态',
+            icon: 'success',
+            duration: 2000
+          });
+        }else{
+          wx.showToast({
+            title: '加载成功',
+            icon: 'success',
+            duration: 2000
+          });          
+          console.log(newData);
+          that.setData({
+            content: that.data.content.concat(newData)
+          });
+        }
+      }
+    })    
   },
 
   //使用本地 fake 数据实现刷新效果

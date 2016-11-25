@@ -9,14 +9,14 @@
       <image src="../../image/add.png"></image>
     </view>
   </view>
-  <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+  <block wx:for="{{content}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
     <view class="feed-item">
       <view class="feed-source">
         <a class="">
           <view class="avatar">
             <image src="{{item.feed_source_img}}"></image>
           </view>
-          <text>{{item.feed_source_name}}</text>
+          <text>{{item.user.userName}}</text>
         </a> 
 
        
@@ -24,13 +24,25 @@
       <view class="feed-content">
         <view class="answer-body">
           <view bindtap="bindStateTap">
-            <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
+            <text class="answer-txt" aid="{{answer_id}}">{{item.content}}</text>
             <image src="../../image/24280.jpg" class="card-image"></image>
           </view>
           <view class="answer-actions">
-            <view class="like">
-              <a bindtap="doPraise">{{item.good_num}} <image src="../../image/praise_normal.png" class="praiseImg"></image> </a> 
+            <!--<view class="like">
+              <a bindtap="doPraise">{{item.praiseCount}} <image src="../../image/praise_normal.png" class="praiseImg"></image> </a> 
             </view>
+            <view>
+              {{item.createAt}}
+            </view>-->
+            <view class="like dot">
+                <a>{{item.praiseCount}} 赞同 </a>
+            </view>
+            <view class="comments dot">
+                <a>{{item.commentsCount}} 评论 </a>
+            </view>
+            <view>
+              {{item.createAt}}
+            </view>                        
           </view>
         </view>
       </view>
