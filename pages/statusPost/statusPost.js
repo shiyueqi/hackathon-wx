@@ -1,6 +1,6 @@
 var sourceType = [['camera'], ['album'], ['camera', 'album']]
 var sizeType = [['compressed'], ['original'], ['compressed', 'original']]
-var Util = require( '../../utils/util.js' )
+var Util = require('../../utils/util.js')
 Page({
   data: {
     sourceTypeIndex: 2,
@@ -14,7 +14,8 @@ Page({
     count: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     lines: [
       { id: 1 }, { id: 2 }, { id: 3 }
-    ]
+    ],
+    toast2Hidden: true
   },
   sourceTypeChange: function (e) {
     this.setData({
@@ -59,25 +60,32 @@ Page({
   //条件状态
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
+
     wx.request({
-      url: 'http://172.21.101.175:11000/uplus/content/contents',
+      url: 'http://172.21.101.175:11000/uplus/content',
       data: Util.json2Form({
         userId: '1',
-        content:  e.detail.value.input0+e.detail.value.input1+e.detail.value.input2,
-        pics:''
+        content: e.detail.value.input0 + e.detail.value.input1 + e.detail.value.input2,
+        pics: ''
       }),
       header: {
         'Content-Type': "application/x-www-form-urlencoded"
       },
       method: "POST",
       success: function (res) {
+        if (res.data.code == 1) {
+          wx.navigateTo({
+            url: '../index/index'
+          })
+        }
         console.log(res.data)
       }
     })
   },
   formReset: function (e) {
 
-  }
+  },
+ 
 })
 
 

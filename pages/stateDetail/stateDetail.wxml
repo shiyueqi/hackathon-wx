@@ -1,55 +1,54 @@
+
 <!--stateDetail.wxml-->
 <view class="container">
-    <view class="question-wrp">
-        <view class="question-item">
-            <view class="que-title">
-                今天我们参加了编程马拉松，大家加油！！！
-            </view>
-            <image src="../../image/24280.jpg" class="card-image"></image>
-            <view class="que-follow">
-                <view class="left">
-                    <view class="watch">
-                        <image src="../../image/praise_normal.png"></image>
-                        <text>112</text>
-                    </view>                
-                    <view class="comment">
-                        <image src="../../image/comment2.png"></image>
-                        <text>1</text>
-                    </view>
-                </view>
-            </view>
+  <view class="question-wrp">
+    <view class="question-item">
+      <view class="que-title">
+        今天我们参加了编程马拉松，大家加油！！！
+      </view>
+      <image src="../../image/24280.jpg" class="card-image"></image>
+      <view class="que-follow">
+        <view class="left">
+          <view class="watch">
+            <image src="../../image/praise_normal.png"></image>
+            <text>112</text>
+          </view>
+          <view class="comment">
+            <image src="../../image/comment2.png"></image>
+            <text>1</text>
+          </view>
         </view>
-        <view class="que-operate flex-wrp">
-
-            <view class="write flex-item">
-                <image src="../../image/write.png"></image>
-                <text>回复</text>
-            </view>
-        </view>
+      </view>
     </view>
-    <view class="answer-feed">
-        <view  bindtap="bindItemTap" class="feed-item">
-            <view class="feed-source">
-                <a class="" bindTap="">
-                    <view class="avatar">
-                        <image src="../../image/icon1.jpeg"></image>
-                    </view>
-                    <text>Rebecca</text>
-                </a>
-            </view>
-            <view class="feed-content">
-                <view class="answer-body">
-                    <view>
-                        <text class="answer-txt">加油加油！</text>
-                    </view>
-                    <view class="answer-actions">
-                        <view class="time">
-                            <a>1 小时前</a>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
+    <view class="que-operate flex-wrp">
+      <view class="write flex-item">
+        <image src="../../image/write.png"></image>
+        <text>评论</text>
+      </view>
     </view>
+  </view>
+  <view class="answer-feed">
+    <view bindtap="bindItemTap" class="feed-item">
+      <view class="feed-source">
+        <a class="" bindTap="">
+          <view class="avatar">
+            <image src="../../image/icon1.jpeg"></image>
+          </view>
+          <text>Rebecca</text>
+        </a> 
+      </view>
+      <view class="feed-content">
+        <view class="answer-body">
+          <view>
+            <text class="answer-txt">加油加油！</text>
+          </view>
+          <view class="answer-actions">
+            <view class="time">
+              <a>1 小时前</a> 
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
-
