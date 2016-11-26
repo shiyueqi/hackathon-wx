@@ -42,7 +42,8 @@
         <view class="feed-source">
           <a class="" bindTap="">
             <view class="avatar">
-              <image src="../../image/icon1.jpeg"></image>
+              <!--<image src="../../image/icon1.jpeg"></image>-->
+              <image src="{{item.user.userPic}}"></image>
             </view>
             <text>{{item.user.userName}}</text>
           </a> 
