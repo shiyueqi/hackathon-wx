@@ -19,6 +19,7 @@ Page({
     praiseCount: ''
 
   },
+
   doPraise: function () {
     var that = this;
     wx.request({
@@ -97,7 +98,7 @@ Page({
       }
     })
   },
-  writeComment: function () {
+    writeComment: function () {
     console.log("hello")
     this.setData({
       hidden: "inline"
