@@ -11,8 +11,24 @@ Page({
 
     content: [],
     comment: [], 
-    praiseCount: ''   
+    praiseCount: '',
+    
+    names: ["技术", "生活", "工作", "情感", "杂谈"],
+    array: [{ id: 31, name: '技术' }, { id: 32, name: "生活" }, { id: 33, name: "工作" }, {
+      id: 34, name: "情感"
+    }, { id: 35, name: "杂谈" }
+    ],
+    tag:''
   },
+  getNamebyId:function (id){
+    for (var i = 0, l = this.data.array.length; i < l; i++) {
+      for (var key in this.data.array[i]) {
+        if (this.data.array[i][key] === id) {
+          return this.data.array[i].name
+        }
+      }
+    }    
+  },  
   //事件处理函数
   bindItemTap: function() {
     wx.navigateTo({
@@ -46,7 +62,8 @@ Page({
         console.log(res.data);
         that.setData({
           content: res.data,
-          praiseCount: res.data.praiseCount
+          praiseCount: res.data.praiseCount,
+          tag:that.getNamebyId(res.data.typeSub)          
         });
       }
     })

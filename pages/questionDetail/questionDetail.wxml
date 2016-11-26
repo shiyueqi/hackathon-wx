@@ -4,8 +4,7 @@
   <view class="question-wrp">
     <view class="question-item">
       <view class="que-tag">
-        <text class="tag">技术</text>
-        <text class="tag">公共组件</text>
+        <text class="tag">{{tag}}</text>
       </view>
       <view class="que-title">
         {{content.title}}
@@ -50,7 +49,7 @@
         <view class="feed-content">
           <view class="answer-body">
             <view>
-              <text class="answer-txt">{{item.content}}</text>
+              <text class="answer-txt">{{item.comment}}</text>
             </view>
             <view class="answer-actions">
               <view class="comments">

@@ -4,8 +4,7 @@
   <view class="question-wrp">
     <view class="question-item">
       <view class="que-tag">
-        <text class="tag">登山</text>
-        <text class="tag">周末活动</text>
+        <text class="tag">{{tag}}</text>
       </view>
       <view class="que-title">
         {{content.title}}
