@@ -76,7 +76,8 @@ Page({
         console.log(res.data);
         that.setData({
           content: res.data,
-          praiseCount: res.data.praiseCount
+          praiseCount: res.data.praiseCount,
+          activityUsersCount: res.data.activityUsersCount
         });
       }
     })
@@ -99,6 +100,7 @@ Page({
     })
   },
   joinAct: function(){
+    var that = this;
     wx.request({
       url: 'http://172.21.101.175:11000/uplus/activity/' + this.data.contentId + '/newreg',
       method:'post',
@@ -111,6 +113,9 @@ Page({
       success: function (res) {
         console.log(res.data);
         if (res.data.code == 1) {
+          that.setData({
+            activityUsersCount: that.data.activityUsersCount+1
+          });          
           wx.showToast({
             title: '报名成功',
             icon: 'success',

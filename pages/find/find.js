@@ -16,8 +16,11 @@ Page({
     feed: [],
     feed_length: 0,
     list: [],
+    qalist:[],
     pageNum: 1,
-    pageSize: 5
+    pageSize: 5,
+    qapageNum:1,
+    qapageSize:5 
   },
   onLoad: function () {
     console.log('onLoad')
@@ -38,9 +41,11 @@ Page({
       url: '../actDetail/actDetail?contentId='+contentId
     })
   },
-  bindQueTap: function() {
+  bindQueTap: function(event) {
+    var contentId = event.target.dataset.contentid;
+    console.log(contentId)    
     wx.navigateTo({
-      url: '../questionDetail/questionDetail'
+      url: '../questionDetail/questionDetail?contentId='+contentId
     })
   },
   upper: function () {
@@ -78,6 +83,23 @@ Page({
       });
       }
     })
+
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/qa/qas',
+      data: {
+        page: this.data.qapageNum ,
+        pageSize: this.data.qapageSize
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res.data.contents);
+          that.setData({
+          qalist: res.data.contents
+      });
+      }
+    })    
   },
 
   //使用本地 fake 数据实现刷新效果

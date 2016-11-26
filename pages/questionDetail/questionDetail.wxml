@@ -1,70 +1,73 @@
+
 <!--questionDetail.wxml-->
 <view class="container">
-    <view class="question-wrp">
-        <view class="question-item">
-            <view class="que-tag">
-                <text class="tag">技术</text>
-                <text class="tag">公共组件</text>
-            </view>
-            <view class="que-title">
-                magpie的配置问题
-            </view>
-            <view class="que-content">
-                如果一个项目既是magpie的客户端，也是magpie的服务端，配置文件应该如何写？
-            </view>
-            <view class="que-follow">
-                <view class="left">
-                    <view class="comment">
-                        <image src="../../image/comment2.png"></image>
-                        <text>1</text>
-                    </view>
-                </view>
-                <view class="right">
-                    关注
-                </view>
-            </view>
+  <view class="question-wrp">
+    <view class="question-item">
+      <view class="que-tag">
+        <text class="tag">技术</text>
+        <text class="tag">公共组件</text>
+      </view>
+      <view class="que-title">
+        {{content.title}}
+      </view>
+      <view class="que-content">
+        {{content.content}}
+      </view>
+      <view class="que-follow">
+        <view class="left">
+          <view class="comment">
+            <image src="../../image/comment2.png"></image>
+            <text>{{content.commentsCount}}</text>
+          </view>
         </view>
-        <view class="que-operate flex-wrp">
-            <view class="invite flex-item">
-                <image src="../../image/invite.png"></image>
-                <text>邀请回答</text>
-            </view>
-            <view class="write flex-item">
-                <image src="../../image/write.png"></image>
-                <text>写回答</text>
-            </view>
+        <view class="right">
+          关注
         </view>
+      </view>
     </view>
+    <view class="que-operate flex-wrp">
+      <view class="invite flex-item">
+        <image src="../../image/invite.png"></image>
+        <text>邀请回答</text>
+      </view>
+      <view class="write flex-item">
+        <image src="../../image/write.png"></image>
+        <text>写回答</text>
+      </view>
+    </view>
+  </view>
+  <block wx:for="{{comment}}" wx:for-index="idx" wx:for-item="item">
     <view class="answer-feed">
-        <view  bindtap="bindItemTap" class="feed-item">
-            <view class="feed-source">
-                <a class="" bindTap="">
-                    <view class="avatar">
-                        <image src="../../image/icon1.jpeg"></image>
-                    </view>
-                    <text>Rebecca</text>
-                </a>
+      <view bindtap="bindItemTap" class="feed-item">
+        <view class="feed-source">
+          <a class="" bindTap="">
+            <view class="avatar">
+              <image src="../../image/icon1.jpeg"></image>
             </view>
-            <view class="feed-content">
-                <view class="answer-body">
-                    <view>
-                        <text class="answer-txt">同不会，已关注，求大神解答！ </text>
-                    </view>
-                    <view class="answer-actions">
-                        <view class="comments">
-                            <a>已有 254人 打赏了此回答</a>
-                        </view>
-                        <!--<button size="mini" type="warn">
+            <text>{{item.user.userName}}</text>
+          </a> 
+        </view>
+        <view class="feed-content">
+          <view class="answer-body">
+            <view>
+              <text class="answer-txt">{{item.content}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="comments">
+                <a>已有 254人 打赏了此回答</a> 
+              </view>
+
+              <!--<button size="mini" type="warn">
                             打赏
                         </button>-->
-                        <view class="operation-btn flex-item">
-                        <image src="../../image/money.png" style="width: 20px; height: 20px; "></image>
-                        <text>打赏</text>
-                        </view>
-                    </view>
-                </view>
+              <view class="operation-btn flex-item">
+                <image src="../../image/money.png" style="width: 20px; height: 20px; "></image>
+                <text>打赏</text>
+              </view>
             </view>
+          </view>
         </view>
+      </view>
     </view>
+  </block>
 </view>
-
