@@ -15,7 +15,8 @@
           <view class="avatar">
 
             <!--<image src="{{item.feed_source_img}}"></image>-->
-            <image src="../../image/1.png"></image>
+            <!--<image src="../../image/1.png"></image>-->
+            <image src="{{item.user.userPic}}"></image>
           </view>
           <text>{{item.user.userName}}</text>
         </a> 
