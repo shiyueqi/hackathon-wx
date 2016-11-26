@@ -79,23 +79,23 @@ Page({
         });
       }
     })
-
-    wx.request({
-      url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
-      data: {
-        pageNum: this.data.pageNum,
-        pageSize: this.data.pageSize
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data.comments);
-        that.setData({
-          comment: res.data.comments
-        });
-      }
-    })
+this.getComments()
+    // wx.request({
+    //   url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
+    //   data: {
+    //     page: this.data.pageNum,
+    //     pageSize: this.data.pageSize
+    //   },
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   success: function (res) {
+    //     console.log(res.data.comments);
+    //     that.setData({
+    //       comment: res.data.comments
+    //     });
+    //   }
+    // })
   },
   writeComment: function () {
     console.log("hello")
@@ -110,6 +110,7 @@ Page({
   formSubmit: function (e) {
     var that = this
     console.log(this.data.contentId)
+    // that.getComments()
     wx.request({
       url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
       data: util.json2Form({
@@ -129,12 +130,33 @@ Page({
             hidden: "none"
 
           })
+          that.getComments()
         }
+        
       }
     })
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   formReset: function () {
     console.log('form发生了reset事件')
+  },
+  getComments: function(){
+    var that = this
+        wx.request({
+      url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
+      data: {
+        page: this.data.pageNum,
+        pageSize: this.data.pageSize
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data.comments);
+        that.setData({
+          comment: res.data.comments
+        });
+      }
+    })
   }
 })
