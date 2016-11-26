@@ -102,10 +102,14 @@ Page({
       }
     })
 
+  this.getComments()
+  },
+    getComments: function(){
+    var that = this
     wx.request({
       url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
       data: {
-        pageNum: this.data.pageNum,
+        page: this.data.pageNum,
         pageSize: this.data.pageSize
       },
       header: {
@@ -184,6 +188,7 @@ Page({
             hidden: "none"
 
           })
+          that.getComments()
         }
       }
     })
