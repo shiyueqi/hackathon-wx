@@ -29,11 +29,20 @@
         <image src="../../image/invite.png"></image>
         <text>邀请回答</text>
       </view>
-      <view class="write flex-item">
+      <view class="write flex-item" bindtap="writeComment">
         <image src="../../image/write.png"></image>
         <text>写回答</text>
       </view>
     </view>
+     <form bindsubmit="formSubmit" bindreset="formReset">
+      <view style="display:{{hidden}};font-size:30px">
+        <input name="comment" disabled="{{flag}}" />
+        <view class="btn-area">
+          <button formType="submit" style="float:right;width:50%">提交</button>
+          <button formType="reset" style="float:left;width:50%" disabled="{{flag}}">取消</button>
+        </view>
+      </view>
+    </form>
   </view>
   <block wx:for="{{comment}}" wx:for-index="idx" wx:for-item="item">
     <view class="answer-feed">

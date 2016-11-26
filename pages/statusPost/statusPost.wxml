@@ -8,7 +8,7 @@
     <button formType="reset" class="btn-right" type="default">重置</button>
   </view>
   <view class="images-wrapper">
-    <text class="images-text">请选择图片</text>
+    <text class="images-text"></text>
     <view class="images-list">
       <block wx:for="{{imageList}}" wx:for-item="image">
         <image src="{{image}}" class="images-image" data-src="{{image}}" bindtap="previewImage"></image>

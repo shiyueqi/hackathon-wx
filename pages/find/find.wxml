@@ -33,9 +33,9 @@
               <text class="answer-txt" aid="{{answer_id}}" bindtap="bindActTap" data-contentId="{{item.contentId}}">{{item.content}}</text>
             </view>
             <view class="answer-actions">
-              <view class="like dot">
+              <!--<view class="like dot">
                 <a>{{item.praiseCount}} 赞同 </a> 
-              </view>
+              </view>-->
 
               <view class="comments">
                 <a>{{item.commentsCount}} 评论 </a>
@@ -76,9 +76,9 @@
               <text class="answer-txt" aid="{{answer_id}}" bindtap="bindQueTap" data-contentId="{{item.contentId}}">{{item.content}}</text>
             </view>
             <view class="answer-actions">
-              <view class="like dot">
+              <!--<view class="like dot">
                 <a>{{item.praiseCount}} 赞同 </a> 
-              </view>
+              </view>-->
 
               <view class="comments">
                 <a>{{item.commentsCount}} 评论 </a>
@@ -90,7 +90,7 @@
     </block>
   </view>
   <view class="ctnt2 placehold" hidden="{{currentNavtab==2 ? '' : true}}">
-    <text>文章</text>
+  
     <view class="container">
     <navigator class="card" url="../blogdetail/blogdetail?id={{item.id}}&title={{item.name}}"  wx:for="{{bloglist}}">
         <image src="{{item.thumbnail}}" class="card-image"></image>

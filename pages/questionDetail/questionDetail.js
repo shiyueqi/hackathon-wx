@@ -8,7 +8,7 @@ Page({
     userInfo: {},
     pageNum: 1,
     pageSize: 5,
-
+    hidden: "none",
     content: [],
     comment: [], 
     praiseCount: '',
@@ -103,6 +103,39 @@ this.getComments()
         });
       }
     })
+  },
+  writeComment: function(){
+console.log("hello")
+var that = this
+that.setData({hidden: "inline"})
+  },
+  formSubmit: function(e){
+    var that = this
+    console.log(this.data.contentId)
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
+      data: util.json2Form({
+        userId: '1',
+        comment: e.detail.value.comment
+
+      }),
+      method: "POST",
+      header: {
+        'Content-Type': "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.code == "1") {
+          that.setData({
+            flag: true,
+            hidden: "none"
+          });
+          that.getComments()
+          
+        }
+      }
+    })
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
   tapName: function(event){
     console.log(event)
