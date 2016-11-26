@@ -5,9 +5,8 @@ Page({
     navTab: ["活动", "问答", "文章"],
     currentNavtab: "0",
     imgUrls: [
-      '../../image/24213.jpg',
-      '../../image/24280.jpg',
-      '../../image/1444983318907-_DSC1826.jpg'
+      '../../image/unionpay.jpg',
+      '../../image/training.jpg'
     ],
     indicatorDots: false,
     autoplay: true,
