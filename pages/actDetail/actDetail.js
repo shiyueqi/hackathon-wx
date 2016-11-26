@@ -16,7 +16,8 @@ Page({
     comment: "",
     flag: false,
     praiseImg: '../../image/praise_normal.png',
-    praiseCount: ''
+    praiseCount: '',
+    activityUsersCount: ''
 
   },
   doPraise: function () {
@@ -96,6 +97,28 @@ Page({
         });
       }
     })
+  },
+  joinAct: function(){
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/activity/' + this.data.contentId + '/newreg',
+      method:'post',
+      data: {
+        userId: 1
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == 1) {
+          wx.showToast({
+            title: '报名成功',
+            icon: 'success',
+            duration: 2000
+          });            
+        }
+      }
+    })    
   },
   writeComment: function () {
     console.log("hello")
