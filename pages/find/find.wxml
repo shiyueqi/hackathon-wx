@@ -17,7 +17,7 @@
         <view class="feed-source">
           <a class="">
             <view class="avatar">
-              <image src="{{item.feed_source_img}}"></image>
+              <image src="{{item.user.userPic}}"></image>
             </view>
             <text>{{item.user.userName}}</text>
           </a> 
@@ -60,7 +60,7 @@
         <view class="feed-source">
           <a class="">
             <view class="avatar">
-              <image src="{{item.feed_source_img}}"></image>
+              <image src="{{item.user.userPic}}"></image>
             </view>
             <text>{{item.user.userName}}</text>
           </a> 
