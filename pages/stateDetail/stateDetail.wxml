@@ -6,7 +6,9 @@
       <view class="que-title">
         {{content.content}}
       </view>
-      <image src="../../image/24280.jpg" class="card-image"></image>
+      <view wx:if="{{content.picUrls.length > 0}}" > 
+        <image src="{{content.picUrls[0]}}" class="card-image"></image>
+      </view>
       <view class="que-follow">
         <view class="left">
           <view class="watch">
