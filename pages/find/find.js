@@ -33,6 +33,7 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
+          console.log(res.data.others)
           that.setData({
             bloglist: res.data.others
           })

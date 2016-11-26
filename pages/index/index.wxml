@@ -40,7 +40,7 @@
               {{item.createAt}}
             </view>-->
             <view class="like dot">
-              <a>{{item.praiseCount}} 赞同 </a> 
+              <a>{{item.praiseCount}} 赞 </a> 
             </view>
             <view class="comments dot">
               <a>{{item.commentsCount}} 评论 </a> 
