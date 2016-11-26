@@ -16,7 +16,7 @@
       <view class="que-follow">
         <view class="left">
           <view class="watch">
-            <text>已有 {{content.activityUsersCount}} 人报名了此活动</text>
+            <text>已有 {{activityUsersCount}} 人报名了此活动</text>
           </view>
         </view>
         <view class="right" bindtap="joinAct">
