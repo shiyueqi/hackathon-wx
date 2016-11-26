@@ -6,7 +6,7 @@ Page({
     conten: "",
     activityname: "",
     lines: [
-      { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }, { id: 8 }, { id: 9 }, { id: 10 }, { id: 11 }
+      { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }
     ],
     names: ["骑行", "桌游", "游泳", "足球", "DOAT"],
     array: [{ id: 21, name: '骑行' }, { id: 22, name: "桌游" }, { id: 23, name: "游泳" }, {
@@ -47,7 +47,7 @@ Page({
       data: util.json2Form({
         userId: "1",
         title: e.detail.value.title,
-        content: e.detail.value.content,
+        content: e.detail.value.input0+e.detail.value.input1+e.detail.value.input2+e.detail.value.input3+e.detail.value.input4,
         typeSub: id,
         pics: ""
       }),
