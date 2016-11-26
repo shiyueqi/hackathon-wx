@@ -6,7 +6,7 @@
       <view class="que-title">
         {{content.content}}
       </view>
-      <image src="../../image/24280.jpg" class="card-image"></image>
+      <image src="{{content.picUrls[0]}}" class="card-image"></image>
       <view class="que-follow">
         <view class="left">
           <view class="watch">
