@@ -24,7 +24,11 @@
         <view class="answer-body">
           <view bindtap="bindStateTap" data-contentId="{{item.contentId}}">
             <text class="answer-txt" aid="{{answer_id}}" bindtap="bindStateTap" data-contentId="{{item.contentId}}">{{item.content}}</text>
-            <image src="../../image/24280.jpg" class="card-image"  bindtap="bindStateTap" data-contentId="{{item.contentId}}"></image>
+            <!--<image src="../../image/24280.jpg" class="card-image"  bindtap="bindStateTap" data-contentId="{{item.contentId}}"></image>-->
+            <view wx:if="{{item.picUrls.length > 0}}" > 
+              <image src="{{item.picUrls[0]}}" class="card-image"  bindtap="bindStateTap" data-contentId="{{item.contentId}}"></image>
+            </view>
+            
           </view>
           <view class="answer-actions">
 
