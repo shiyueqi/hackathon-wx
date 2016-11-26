@@ -15,24 +15,15 @@ Page({
     duration: 1000,
     feed: [],
     feed_length: 0,
-    list: []
+    list: [],
+    pageNum: 1,
+    pageSize: 5
   },
   onLoad: function () {
-      wx.request({
-        url: 'http://news-at.zhihu.com/api/4/themes',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          that.setData({
-            list: res.data.others
-          })
-        }
-      }),
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
-    this.refresh();
+    this.refresh0();
   },
   switchTab: function(e){
     this.setData({
@@ -40,9 +31,11 @@ Page({
     });
   },
 
-  bindActTap: function() {
+  bindActTap: function(event) {
+    var contentId = event.target.dataset.contentid;
+    console.log(contentId)
     wx.navigateTo({
-      url: '../actDetail/actDetail'
+      url: '../actDetail/actDetail?contentId='+contentId
     })
   },
   bindQueTap: function() {
@@ -52,7 +45,7 @@ Page({
   },
   upper: function () {
     wx.showNavigationBarLoading()
-    this.refresh();
+    this.refresh0();
     console.log("upper");
     setTimeout(function(){wx.hideNavigationBarLoading();wx.stopPullDownRefresh();}, 2000);
   },
@@ -68,14 +61,23 @@ Page({
 
   //网络请求数据, 实现刷新
   refresh0: function(){
-    var index_api = '';
-    util.getData(index_api)
-        .then(function(data){
-          //this.setData({
-          //
-          //});
-          console.log(data);
-        });
+    var that = this;
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/activity/activities',
+      data: {
+        page: this.data.pageNum ,
+        pageSize: this.data.pageSize
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res.data.contents);
+          that.setData({
+          list: res.data.contents
+      });
+      }
+    })
   },
 
   //使用本地 fake 数据实现刷新效果

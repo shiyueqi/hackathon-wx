@@ -12,35 +12,33 @@
         </swiper-item>
       </block>
     </swiper>
-    <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+    <block wx:for="{{list}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
       <view class="feed-item">
         <view class="feed-source">
           <a class="">
             <view class="avatar">
               <image src="{{item.feed_source_img}}"></image>
             </view>
-            <text>{{item.feed_source_name}}</text>
+            <text>{{item.user.userName}}</text>
           </a> 
         </view>
-        <view class="feed-content">
-          <view class="question" qid="{{question_id}}" bindtap="bindActTap">
+        <view class="feed-content"  bindtap="bindActTap" data-contentId="{{item.contentId}}">
+          <view class="question" qid="{{question_id}}" bindtap="bindActTap" data-contentId="{{item.contentId}}">
             <a class="question-link">
-              <text>{{item.question}}</text>
+              <text bindtap="bindActTap" data-contentId="{{item.contentId}}">{{item.title}}</text>
             </a> 
           </view>
           <view class="answer-body">
             <view bindtap="bindActTap">
-              <text class="answer-txt" aid="{{answer_id}}">{{item.answer_ctnt}}</text>
+              <text class="answer-txt" aid="{{answer_id}}" bindtap="bindActTap" data-contentId="{{item.contentId}}">{{item.content}}</text>
             </view>
-            <view class="answer-actions" bindtap="bindActTap">
+            <view class="answer-actions">
               <view class="like dot">
-                <a>{{item.good_num}} 赞同 </a> 
+                <a bindtap="bindActTap" data-contentId="{{item.contentId}}">{{item.praiseCount}} 赞同 </a> 
               </view>
 
-              
-
               <view class="comments">
-                <a>{{item.comment_num}} 评论 </a>
+                <a bindtap="bindActTap" data-contentId="{{item.contentId}}">{{item.commentsCount}} 评论 </a>
               </view>
 
             </view>

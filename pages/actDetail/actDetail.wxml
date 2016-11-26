@@ -1,62 +1,64 @@
+
 <!--actDetail.wxml-->
 <view class="container">
-    <view class="question-wrp">
-        <view class="question-item">
-            <view class="que-tag">
-                <text class="tag">登山</text>
-                <text class="tag">周末活动</text>
-            </view>
-            <view class="que-title">
-                11月29日登山活动
-            </view>
-            <view class="que-content">
-                11月29日公司将组织大家参与登泰山活动，限定人数100人，欢迎大家报名参加！
-            </view>
-            <view class="que-follow">
-                <view class="left">
-                    <view class="watch">
-                        <text>已有 56 人报名了此活动</text>
-                    </view>
-                </view>
-                <view class="right">
-                    立即参加
-                </view>
-            </view>
+  <view class="question-wrp">
+    <view class="question-item">
+      <view class="que-tag">
+        <text class="tag">登山</text>
+        <text class="tag">周末活动</text>
+      </view>
+      <view class="que-title">
+        {{content.title}}
+      </view>
+      <view class="que-content">
+        {{content.content}}
+      </view>
+      <view class="que-follow">
+        <view class="left">
+          <view class="watch">
+            <text>已有 56 人报名了此活动</text>
+          </view>
         </view>
-        <view class="que-operate flex-wrp">
-            <view class="invite flex-item">
-                <image src="../../image/invite.png"></image>
-                <text>已报名的小伙伴</text>
-            </view>
-            <view class="write flex-item">
-                <image src="../../image/write.png"></image>
-                <text>评论</text>
-            </view>
+        <view class="right">
+          立即参加
         </view>
+      </view>
     </view>
+    <view class="que-operate flex-wrp">
+      <view class="invite flex-item">
+        <image src="../../image/invite.png"></image>
+        <text>已报名的小伙伴</text>
+      </view>
+      <view class="write flex-item">
+        <image src="../../image/write.png"></image>
+        <text>评论</text>
+      </view>
+    </view>
+  </view>
+  <block wx:for="{{comment}}" wx:for-index="idx" wx:for-item="item">
     <view class="answer-feed">
-        <view  bindtap="bindItemTap" class="feed-item">
-            <view class="feed-source">
-                <a class="" bindTap="">
-                    <view class="avatar">
-                        <image src="../../image/icon1.jpeg"></image>
-                    </view>
-                    <text>Rebecca</text>
-                </a>
+      <view bindtap="bindItemTap" class="feed-item">
+        <view class="feed-source">
+          <a class="" bindTap="">
+            <view class="avatar">
+              <image src="../../image/icon1.jpeg"></image>
             </view>
-            <view class="feed-content">
-                <view class="answer-body">
-                    <view>
-                        <text class="answer-txt">好想参加呀，可惜得加班</text>
-                    </view>
-                    <view class="answer-actions">
-                        <view class="time">
-                            <a>1 小时前</a>
-                        </view>
-                    </view>                    
-                </view>
-            </view>
+            <text>{{item.user.userName}}</text>
+          </a> 
         </view>
+        <view class="feed-content">
+          <view class="answer-body">
+            <view>
+              <text class="answer-txt">{{item.comment}}</text>
+            </view>
+            <view class="answer-actions">
+              <view class="time">
+                <a>{{item.createAt}}</a> 
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
+  </block>
 </view>
-

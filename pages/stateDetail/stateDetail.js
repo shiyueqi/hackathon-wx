@@ -83,7 +83,7 @@ Page({
     wx.request({
       url: 'http://172.21.101.175:11000/uplus/comments/content/' + that.data.contentId,
       data: {
-        page: this.data.pageNum,
+        pageNum: this.data.pageNum,
         pageSize: this.data.pageSize
       },
       header: {
