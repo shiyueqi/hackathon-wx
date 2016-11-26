@@ -16,32 +16,32 @@
       <view class="que-follow">
         <view class="left">
           <view class="watch">
-            <text>已有 56 人报名了此活动</text>
+            <text>已有 {{content.activityUsersCount}} 人报名了此活动</text>
           </view>
         </view>
-        <view class="right">
+        <view class="right" bindtap="joinAct">
           立即参加
         </view>
       </view>
     </view>
     <view class="que-operate flex-wrp">
-      <view class="invite flex-item">
+      <view class="invite flex-item" bindtap="getJoined">
         <image src="../../image/invite.png"></image>
         <text>已报名的小伙伴</text>
       </view>
       <view class="write flex-item" bindtap="writeComment">
-     
         <image src="../../image/write.png"></image>
         <text>评论</text>
       </view>
     </view>
-       <form bindsubmit="formSubmit" bindreset="formReset">
-    <view style="display:{{hidden}};font-size:30px"><input name="comment" disabled="{{flag}}" />
-     <view class="btn-area">
-    <button formType="submit" style="float:right;width:50%">提交</button>
-    <button formType="reset" style="float:left;width:50%" disabled="{{flag}}">取消</button>
-  </view>
-    </view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view style="display:{{hidden}};font-size:30px">
+        <input name="comment" disabled="{{flag}}" />
+        <view class="btn-area">
+          <button formType="submit" style="float:right;width:50%">提交</button>
+          <button formType="reset" style="float:left;width:50%" disabled="{{flag}}">取消</button>
+        </view>
+      </view>
     </form>
   </view>
   <block wx:for="{{comment}}" wx:for-index="idx" wx:for-item="item">
@@ -70,4 +70,9 @@
       </view>
     </view>
   </block>
+  <modal title="标题" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="modalChange">
+    <view wx:for="{{activityUsers}}">
+      {{item.userName}}
+    </view>
+  </modal>
 </view>

@@ -9,7 +9,7 @@ Page({
     interval: 3000,
     loading: false,
     plain: false,
-    actionSheetItems: [{ id: 1, content: "状态" }, { id: 2, content: "活动" }, { id: 3, content: "文章" }, { id: 4, content: "签到" }, { id: 5, content: "问题" }],
+    actionSheetItems: [{ id: 1, content: "状态" }, { id: 2, content: "活动" }, { id: 3, content: "文章" }, { id: 4, content: "问题" }, { id: 5, content: "签到" }],
     actionSheetHidden: true,
     feed: [],
     feed_length: 0,

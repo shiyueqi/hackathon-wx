@@ -16,7 +16,11 @@ Page({
     comment: "",
     flag: false,
     praiseImg: '../../image/praise_normal.png',
-    praiseCount: ''
+    praiseCount: '',
+    activityUsersCount: '',
+    disabled: false,
+    activityUsers: [],
+    modalHidden: true
 
   },
 
@@ -34,7 +38,7 @@ Page({
         console.log(res.data);
         if (res.data.code == 1) {
           that.setData({
-            praiseCount: that.data.praiseCount+1
+            praiseCount: that.data.praiseCount + 1
           });
         }
       }
@@ -52,7 +56,7 @@ Page({
   onLoad: function (options) {
     console.log('onLoad')
     var that = this
-   
+
     that.setData({
       contentId: options.contentId
     });
@@ -98,7 +102,37 @@ Page({
       }
     })
   },
-    writeComment: function () {
+
+  joinAct: function () {
+    var that = this
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/activity/' + this.data.contentId + '/newreg',
+      method: 'POST',
+      data: util.json2Form({
+        userId: "1",
+
+      }),
+      header: {
+        'content-type': "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.code == "1") {
+          wx.showToast({
+            title: '报名成功',
+            icon: 'success',
+            duration: 2000
+          });
+          this.setData({
+            disabled: true
+          })
+        }
+
+      }
+    })
+  },
+  writeComment: function () {
+
     console.log("hello")
     this.setData({
       hidden: "inline"
@@ -137,5 +171,30 @@ Page({
   },
   formReset: function () {
     console.log('form发生了reset事件')
+  },
+   modalChange: function(e) {
+    this.setData({
+      modalHidden: true
+    })
+  },
+  getJoined: function(){
+    var that = this
+    wx.request({
+  url: 'http://172.21.101.175:11000/uplus/activity/'+that.data.contentId, //仅为示例，并非真实的接口地址
+  data: {
+    
+  },
+  header: {
+      'content-type': 'application/json'
+  },
+  success: function(res) {
+    that.setData({
+      activityUsers: res.data.activityUsers
+    })
+    
+    console.log(this.activityUsers)
+  }
+}),
+    this.setData({modalHidden: false})
   }
 })

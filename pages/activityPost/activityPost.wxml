@@ -2,6 +2,14 @@
   <view class="section">
     <view class="section__title">活动标题</view>
     <input name="title" placeholder="" />
+    <view class="section">
+  <view class="section__title">地区活动类型</view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{names}}">
+    <view class="picker">
+      当前选择：{{activityname}}
+    </view>
+  </picker>
+</view>
     <view class="input-container">
       <view class="section__title" wx:for="{{lines}}">
       <input name="input{{index}}" placeholder="" />
@@ -13,3 +21,9 @@
     <button formType="reset" class="btn-right" type="default">Reset</button>
   </view>
 </form>
+<view class="body-view">
+  <toast hidden="{{toast1Hidden}}" bindchange="toast1Change" duration="1000">
+    添加成功
+  </toast>
+  
+</view>
