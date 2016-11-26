@@ -20,10 +20,25 @@ Page({
     activityUsersCount: '',
     disabled: false,
     activityUsers: [],
-    modalHidden: true
+    modalHidden: true,
 
+    names: ["骑行", "桌游", "游泳", "足球", "DOAT"],
+    array: [{ id: 21, name: '骑行' }, { id: 22, name: "桌游" }, { id: 23, name: "游泳" }, {
+      id: 24, name: "足球"
+    }, { id: 25, name: "DOAT" }
+    ],
+    tag:''
   },
 
+  getNamebyId:function (id){
+    for (var i = 0, l = this.data.array.length; i < l; i++) {
+      for (var key in this.data.array[i]) {
+        if (this.data.array[i][key] === id) {
+          return this.data.array[i].name
+        }
+      }
+    }    
+  },
   doPraise: function () {
     var that = this;
     wx.request({
@@ -81,7 +96,8 @@ Page({
         that.setData({
           content: res.data,
           praiseCount: res.data.praiseCount,
-          activityUsersCount: res.data.activityUsersCount
+          activityUsersCount: res.data.activityUsersCount,
+          tag:that.getNamebyId(res.data.typeSub)
         });
       }
     })
