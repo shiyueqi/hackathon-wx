@@ -16,10 +16,22 @@ Page({
     feed: [],
     feed_length: 0,
     list: [],
+    bloglist: [],
     pageNum: 1,
     pageSize: 5
   },
   onLoad: function () {
+        wx.request({
+        url: 'http://news-at.zhihu.com/api/4/themes',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          that.setData({
+            bloglist: res.data.others
+          })
+        }
+      })
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
