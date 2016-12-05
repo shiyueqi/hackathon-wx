@@ -72,7 +72,7 @@ Page({
   lower: function (e) {
     wx.showNavigationBarLoading();
     var that = this;
-    setTimeout(function(){wx.hideNavigationBarLoading();that.nextLoad();}, 1000);
+    setTimeout(function(){wx.hideNavigationBarLoading();that.nextRefresh0();}, 1000);
     console.log("lower")
   },
   //scroll: function (e) {
@@ -115,6 +115,65 @@ Page({
       });
       }
     })    
+  },
+
+  nextRefresh0:function () {
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading'
+    });
+    that.setData({
+      pageNum : that.data.pageNum+1,
+      qapageNum : that.data.qapageNum+1
+    });
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/activity/activities',
+      data: {
+        pageNum: this.data.pageNum ,
+        pageSize: this.data.pageSize
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        var newData = res.data.contents;
+        console.log(newData);
+        if(newData.length != 0){
+          that.setData({
+            list: that.data.list.concat(newData)
+          });
+        }
+      }
+    });
+    wx.request({
+      url: 'http://172.21.101.175:11000/uplus/qa/qas',
+      data: {
+        pageNum: this.data.qapageNum ,
+        pageSize: this.data.qapageSize
+      },
+      header: {
+          'content-type': 'application/json'
+      },
+      success: function(res) {
+        wx.hideToast();
+        var newData = res.data.contents;
+        wx.showToast({
+          title: '加载成功',
+          icon: 'success',
+          duration: 1000
+        });
+        console.log(newData);
+        if(newData.length != 0){
+          that.setData({
+            qalist: that.data.qalist.concat(newData)
+          });
+        }
+      },
+      fail: function(){
+        wx.hideToast();
+      }
+    });    
   },
 
   //使用本地 fake 数据实现刷新效果

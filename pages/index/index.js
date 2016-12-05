@@ -108,13 +108,13 @@ Page({
           wx.showToast({
             title: '已无更多状态',
             icon: 'success',
-            duration: 2000
+            duration: 1000
           });
         }else{
           wx.showToast({
             title: '加载成功',
             icon: 'success',
-            duration: 2000
+            duration: 1000
           });          
           console.log(newData);
           that.setData({

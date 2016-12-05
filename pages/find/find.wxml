@@ -3,7 +3,7 @@
     {{itemName}}
   </view>
 </view>
-<scroll-view scroll-y="true" class="container discovery withtab" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<scroll-view scroll-y="true" class="container discovery withtab" bindscrolltoupper="upper" bindscrolltolower="lower" upper-threshold="1" lower-threshold="1" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
   <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}">
     <swiper class="activity" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}">
