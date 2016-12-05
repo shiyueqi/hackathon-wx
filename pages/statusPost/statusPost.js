@@ -3,6 +3,7 @@ var sizeType = [['compressed'], ['original'], ['compressed', 'original']]
 var Util = require('../../utils/util.js')
 Page({
   data: {
+    statusContent:"",
     sourceTypeIndex: 2,
     sourceType: ['拍照', '相册', '拍照或相册'],
 
@@ -65,7 +66,7 @@ Page({
       url: 'http://172.21.101.175:11000/uplus/content',
       data: Util.json2Form({
         userId: '1',
-        content: e.detail.value.input0 + e.detail.value.input1 + e.detail.value.input2,
+        content: e.detail.value.input,
         pics: ''
       }),
       header: {

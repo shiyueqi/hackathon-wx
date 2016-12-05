@@ -1,4 +1,4 @@
-<form bindsubmit="formSubmit" bindreset="formReset">
+<!--<form bindsubmit="formSubmit" bindreset="formReset">
   <view class="input-container"  wx:for="{{lines}}">
    
     <input name="input{{index}}" style="height:47rpx"  placeholder="" />
@@ -25,4 +25,18 @@
   <toast hidden="{{toast2Hidden}}" duration="3000" bindchange="toast2Change">
     设置duration
   </toast>
-</view>
+</view>-->
+
+<form bindsubmit="formSubmit" bindreset="formReset" class="form">
+<text>发布状态</text>
+
+  <view class="section">
+    <!--<view class="section__title">input</view>-->
+   <textarea placeholder="写点什么..." name="input" />
+  </view>
+
+  <view class="btn-area">
+    <button formType="submit">发布</button>
+    <!--<button formType="reset">Reset</button>-->
+  </view>
+</form>

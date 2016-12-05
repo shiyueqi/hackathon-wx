@@ -1,1 +1,69 @@
-/* pages/questionPost/questionPost.wxss */
+.main{
+ background: #F7F7F7;
+ margin-left: auto;
+ margin-right: auto;
+ width: 400px;
+ height: 800rpx;
+font: 20px Georgia, "Times New Roman", Times, serif;
+color: #888;
+text-shadow: 1px 1px 1px #FFF;
+border:2px solid #E4E4E4;
+}
+.form text{
+font-size: 30px;
+padding: 0px 0px 10px 40px;
+display: block;
+border-bottom:1px solid #E4E4E4;
+margin: 10px 5px 20px 0px;
+color: #888;
+}
+.form input {
+    display: block;
+    float: right;
+border: 2px solid #E4E4E4;
+/*color: white;*/
+height: 10px;
+margin-bottom: 16px;
+margin-top: 2px;
+outline: 0 none;
+padding: 3px 3px 3px 5px;
+width: 70%;
+font-size: 12px;
+line-height:15px;
+
+}
+.form label {
+display: block;
+margin-bottom: 20px
+
+}
+.form description{
+    padding-top: 30px;
+}
+.form textarea {
+
+    display: block;
+    padding: 3px 3px 3px 5px;
+    border:2px solid #E4E4E4;
+    width: 70%;
+    float: right;
+     
+}
+.form picker{
+    display: block;
+    padding-top:20px;
+    padding-bottom: 30px
+}
+
+
+.btn-left{
+display: block;
+width: 50%;
+float: left
+}
+
+.btn-right{
+display: block;
+width: 50%;
+float: right
+}
