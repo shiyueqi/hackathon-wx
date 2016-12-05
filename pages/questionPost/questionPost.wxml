@@ -1,4 +1,5 @@
-<form bindsubmit="formSubmit" bindreset="formReset">
+
+<!--<form bindsubmit="formSubmit" bindreset="formReset">
   <view class="section">
     <view class="section__title">问题简要</view>
     <input name="title" placeholder="" />
@@ -21,9 +22,37 @@
     <button formType="reset" class="btn-right" type="default">Reset</button>
   </view>
 </form>
-<view class="body-view">
+
+  
+</view>-->
+<view class="main">
+  <form bindsubmit="formSubmit" bindreset="formReset" class="form">
+    <text>发布问题</text>
+    <view>
+      <label>
+        <span>问题概况:</span> 
+        <input name="title"/>
+      </label> 
+    </view>
+    <view class="picker">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{names}}">
+        <view class="picker">当前选择:   {{activityname}}
+        </view>  
+      </picker>
+    </view>
+    <view class="description">
+      <label>
+        <span>问题描述 :</span> 
+        <textarea name="input" />
+      </label>
+    </view>
+     <view class="btn">
+      <button formType="submit" class="btn-left" type="default">发布</button>
+      <button formType="reset" class="btn-right" type="default">取消</button>
+    </view>
+  </form>
+  <view class="body-view">
   <toast hidden="{{toast1Hidden}}" bindchange="toast1Change" duration="1000">
     添加成功
   </toast>
-  
 </view>

@@ -238,7 +238,7 @@ bind3: function(e){
 },
 bind4: function(e){
        wx.navigateTo({
-      url: '../signPost/signPost',
+      url: '../questionPost/questionPost',
       success: function(res){
         // success
       },
@@ -257,7 +257,7 @@ modalChange: function(e) {
   },
 bind5: function(e){
      wx.navigateTo({
-      url: '../questionPost/questionPost',
+      url: '../signPost/signPost',
       success: function(res){
         // success
       },

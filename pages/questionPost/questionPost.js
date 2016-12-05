@@ -47,7 +47,7 @@ Page({
       data: util.json2Form({
         userId: "1",
         title: e.detail.value.title,
-        content: e.detail.value.input0+e.detail.value.input1+e.detail.value.input2+e.detail.value.input3+e.detail.value.input4,
+        content: e.detail.value.input,
         typeSub: id,
         pics: ""
       }),
