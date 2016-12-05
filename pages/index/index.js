@@ -80,6 +80,7 @@ Page({
         console.log(res.data.contents);
           that.setData({
           content: res.data.contents
+          
       });
       }
     })
