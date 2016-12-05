@@ -17,7 +17,9 @@ Page({
     content: [],
     pageNum: 1,
     pageSize: 5,
-    searchInput: ""
+    searchInput: "",
+    picTmp: ".",
+
 
   },
   //事件处理函数

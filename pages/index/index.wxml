@@ -29,7 +29,7 @@
             <view wx:if="{{item.picUrls.length > 0}}" > 
               <image src="{{item.picUrls[0]}}" class="card-image"  bindtap="bindStateTap" data-contentId="{{item.contentId}}"></image>
             </view>
-            
+            <view wx:else>{{picTmp}}</view>
           </view>
           <view class="answer-actions">
 
